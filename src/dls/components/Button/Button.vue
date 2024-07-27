@@ -1,20 +1,32 @@
 <template>
-  <button class="ct-button" :class="{ '--disabled': disabled }">
+  <button class="ct-button" :class="[themeClass, { '--disabled': disabled }]">
+    <slot name="icon" />
+
     <slot />
   </button>
 </template>
 
 <script lang="ts" setup>
-defineProps({
+import { computed, PropType, toRefs } from 'vue'
+import { ButtonTheme, buttonThemeClassesRegistry } from './Button.contracts'
+
+const props = defineProps({
   theme: {
-    type: String,
-    required: false
+    type: String as PropType<ButtonTheme>,
+    required: false,
+    default: ButtonTheme.Primary
   },
   disabled: {
     type: Boolean,
     required: false,
     default: false
   }
+})
+
+const { theme, disabled } = toRefs(props)
+
+const themeClass = computed<string>(() => {
+  return buttonThemeClassesRegistry[theme?.value]
 })
 </script>
 
@@ -23,17 +35,32 @@ defineProps({
   border: 0;
   outline: 0;
 
-  padding: 8px 16px;
-
-  color: $button-color;
-  line-height: 24px;
   font-weight: 500;
   font-size: 16px;
 
   background: $accent;
   border-radius: 4px;
 
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
   cursor: pointer;
+
+  &.--primary {
+    color: $button-color;
+    background: $accent;
+
+    padding: 8px 16px;
+    line-height: 24px;
+  }
+
+  &.--text {
+    color: $text-light;
+    background: transparent;
+
+    padding: 4px 6px;
+  }
 
   &.--disabled {
     background: $text-light;

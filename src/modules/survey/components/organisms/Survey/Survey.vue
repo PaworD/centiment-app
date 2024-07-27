@@ -39,10 +39,12 @@
       </VueDraggable>
 
       <div class="Survey__right__footer">
-        <button class="Survey__right__footer__reset" @click="resetSelected">
-          <UiIcon name="retry" />
+        <UiButton class="Survey__right__footer__reset" theme="text" @click="resetSelected">
+          <template #icon>
+            <UiIcon name="retry" />
+          </template>
           Reset
-        </button>
+        </UiButton>
       </div>
 
       <span v-if="!canSelect" class="Survey__right__info">
@@ -110,21 +112,8 @@ const {
       margin-top: 24px;
 
       &__reset {
-        border: 0;
-        outline: 0;
-
-        background: transparent;
-        padding: 4px 6px;
-
-        color: $text-light;
         font-size: 13px;
         font-weight: 500;
-
-        display: flex;
-        align-items: center;
-        gap: 6px;
-
-        cursor: pointer;
       }
     }
   }

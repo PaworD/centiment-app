@@ -2,6 +2,14 @@
   <div v-if="shouldDisplay" class="SurveyRenderer">
     <transition appear name="slide-up">
       <div v-if="currentSurvey">
+        <UiButton class="SurveyRenderer__prev" theme="text" @click="nextStep">
+          <template #icon>
+            <UiIcon name="chevron_up" />
+          </template>
+
+          Prev
+        </UiButton>
+
         <SurveyHeading
           class="SurveyRenderer__heading"
           :title="currentSurvey.question"
@@ -41,6 +49,15 @@ const {
 
   &__next {
     margin-top: 48px;
+  }
+
+  &__prev {
+    margin-bottom: 16px;
+    gap: 12px;
+
+    > svg {
+      width: 10px;
+    }
   }
 
   .slide-up-enter-active,

@@ -9,19 +9,8 @@
   display: flex;
   flex-flow: column;
   gap: 12px;
-  z-index: -1;
 
   &__shadow {
-    &__index {
-      color: $text-accent;
-    }
-
-    &__container {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-
     background-color: transparent;
 
     border: 2px solid $accent-light;
@@ -31,8 +20,6 @@
     display: flex;
     width: 100%;
     padding: 20px;
-
-    z-index: -1;
 
     &::before {
       content: "shadow";

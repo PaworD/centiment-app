@@ -1,12 +1,10 @@
 
-export enum ParagraphSize {
-  Small = 'small',
-  Regular = 'regular',
-  Large = 'large'
+export enum ButtonTheme {
+  Primary = 'primary',
+  Text = 'text'
 }
 
-export const paragraphSizeClassRegistry: Record<ParagraphSize, string> = {
-  [ParagraphSize.Regular]: '--regular',
-  [ParagraphSize.Large]: '--large',
-  [ParagraphSize.Small]: '--small'
+export const buttonThemeClassesRegistry: Record<ButtonTheme, string> = {
+  [ButtonTheme.Primary]: '--primary',
+  [ButtonTheme.Text]: '--text'
 }
