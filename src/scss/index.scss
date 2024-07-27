@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+// First import everything related to styles/css vars from the design language system,
+// other app based imports follow through, so app everrides the certain classes/vars.
+@import "../dls/scss";
+
+@import "variables";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Inter, 'sans-serif';
+}

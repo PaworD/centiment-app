@@ -1,0 +1,1 @@
+export { default as SurveyRenderer } from './SurveyRenderer.vue'
