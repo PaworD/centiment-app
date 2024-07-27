@@ -2,7 +2,7 @@ import { IModule } from '@/boostrap/abstract'
 import { serviceLocator } from '@/shared/services/service-locator'
 
 import { SurveysRepository } from './repositories/surveys.repository'
-import { ISurveysRepository, SurveysRepositorySymbol } from './contracts'
+import { SurveysRepositorySymbol } from './contracts'
 import { routes } from './config/routes'
 
 /**
@@ -12,7 +12,7 @@ export const SurveyModule: IModule = {
   name: 'survey',
   load: () => {
     serviceLocator
-      .register<ISurveysRepository>(SurveysRepositorySymbol, SurveysRepository)
+      .register(SurveysRepositorySymbol, SurveysRepository)
   },
   routes
 }

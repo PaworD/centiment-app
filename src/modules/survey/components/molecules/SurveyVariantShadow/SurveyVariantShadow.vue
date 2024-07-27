@@ -1,6 +1,6 @@
 <template>
   <div class="SurveyVariantShadow">
-    <div class="SurveyVariantShadow__shadow" @drop="onDrop" @dragover="onDragOver"></div>
+    <div class="SurveyVariantShadow__shadow"></div>
   </div>
 </template>
 

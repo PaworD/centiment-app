@@ -58,6 +58,7 @@ import { VueDraggable } from 'vue-draggable-plus'
 import { SurveyVariant } from '../../molecules/SurveyVariant'
 import { SurveyVariantShadow } from '../../molecules/SurveyVariantShadow'
 import { useSurvey } from './use-survey'
+import { SurveyProps } from './Survey.props'
 
 const props = defineProps({
   survey: {
@@ -74,7 +75,7 @@ const {
   moveToSelected,
   resetSelected,
   canSelect
-} = useSurvey(props)
+} = useSurvey(props as SurveyProps)
 
 </script>
 

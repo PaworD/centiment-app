@@ -4,7 +4,7 @@
 
 <script lang="ts" setup>
 import { computed, inject } from 'vue'
-import { IconNames, IconRegistryKey } from '@/dls/icons/registry'
+import { Icon as IconName, IconNames, IconRegistryKey } from '@/dls/icons/registry'
 
 const props = defineProps({
   name: {
@@ -16,7 +16,7 @@ const props = defineProps({
 const icons = inject<IconNames>(IconRegistryKey)
 
 const iconComponent = computed(() => {
-  return icons[props.name]
+  return icons?.[(props.name as IconName)] ?? null
 })
 </script>
 

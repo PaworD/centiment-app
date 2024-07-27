@@ -12,7 +12,7 @@ export interface UseSurveyRendererProvides {
 
 export const useSurveyRenderer = (
   props: SurveyRendererProps,
-  emit: (event: string, ...options) => void
+  emit: (event: any, ...options: any[]) => void
 ): UseSurveyRendererProvides => {
   const { surveys } = toRefs(props)
   const currentSurveyIndex = shallowRef(0)

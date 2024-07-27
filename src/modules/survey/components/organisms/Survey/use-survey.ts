@@ -1,19 +1,21 @@
 import { ComputedRef, Ref } from 'vue'
 import { computed, onMounted, ref, toRefs } from 'vue'
+import { SortableEvent } from 'vue-draggable-plus'
 
-import { SurveyVariant } from '@/modules/survey/contracts'
+import { SurveyVariant } from '../../../contracts'
+import { SurveyProps } from './Survey.props'
 
 export interface UseSurveyProvides {
   variants: Ref<SurveyVariant[]>,
   selectedVariants: Ref<(SurveyVariant | null)[]>
-  canSelect: ComputedRef<Boolean>
+  canSelect: ComputedRef<boolean>
   moveToSelected(variant: SurveyVariant): void
-  addSelectedVariant(event: CustomEvent): void
+  addSelectedVariant(event: SortableEvent): void
   removeSelectedVariant(): void
   resetSelected(): void
 }
 
-export const useSurvey = (props): UseSurveyProvides => {
+export const useSurvey = (props: SurveyProps): UseSurveyProvides => {
   const { survey } = toRefs(props)
 
   const variants = ref<SurveyVariant[]>([])
@@ -46,9 +48,7 @@ export const useSurvey = (props): UseSurveyProvides => {
     return array
   }
 
-  function addSelectedVariant (event: CustomEvent) {
-    const { data: variant, newIndex } = event
-
+  function addSelectedVariant () {
     _setSelectedVariants(removeFirstNull([...selectedVariants.value]), true)
   }
 
