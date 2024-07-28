@@ -23,15 +23,13 @@ export class Bootstrapper {
     }
 
     for (const module of this._modules) {
-      console.log(module)
       const { routes, load } = module
-      // Set routes
+
       app.routes = [
         ...app.routes,
         ...routes
       ]
 
-      // Fire modules `load function`
       load()
     }
 

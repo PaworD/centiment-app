@@ -1,5 +1,5 @@
 import { createApp } from 'vue'
-import { createMemoryHistory, createRouter } from 'vue-router'
+import { createWebHistory, createRouter } from 'vue-router'
 
 import App from './App.vue'
 import { createBootstrapperApp } from './boostrap'
@@ -8,8 +8,8 @@ import { DLSPlugin } from '@/dls/plugin'
 
 createBootstrapperApp(modules).then(({ routes }) => {
   const router = createRouter({
-    history: createMemoryHistory(),
-    routes,
+    history: createWebHistory(),
+    routes: routes,
   })
 
   const app = createApp(App)
