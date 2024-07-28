@@ -9,6 +9,8 @@
 - [x] Add the ability to deselect items, moving them back to the left column.
 - [x] Allow reordering of items within the right column.
 
+---
+🌐 🔴 Project LIVE: https://centiment-mvp.netlify.app/
 
 ---
 
